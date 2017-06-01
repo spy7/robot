@@ -1,1 +1,2 @@
-robot\RobotConfigurationTests.class
+controller\RobotControllerTest.class
+configuration\NasaConfigurationTests.class

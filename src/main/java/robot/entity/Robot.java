@@ -1,12 +1,12 @@
-package entity;
+package robot.entity;
 
 /**
  * Created by: csanches on 01/06/2017.
  */
 public class Robot {
 
-    private int x;
-    private int y;
+    private Integer x;
+    private Integer y;
     private Direction direction;
 
     public Robot() {
@@ -15,19 +15,19 @@ public class Robot {
         direction = Direction.NORTH;
     }
 
-    public int getX() {
+    public Integer getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(Integer x) {
         this.x = x;
     }
 
-    public int getY() {
+    public Integer getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(Integer y) {
         this.y = y;
     }
 

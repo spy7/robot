@@ -1,4 +1,4 @@
-package controller;
+package configuration;
 
 import configuration.NasaConfiguration;
 import org.junit.Test;

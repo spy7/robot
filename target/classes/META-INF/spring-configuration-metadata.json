@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "robot.property.NasaProperty",
+      "name": "message.error",
+      "type": "robot.property.NasaProperty"
+    }
+  ],
+  "properties": []
+}
