@@ -26,7 +26,7 @@ public class RobotValidateTest {
         try {
             robotValidate.validateRobot(createRobot());
         } catch (NasaException e) {
-            Assert.fail("Success test fail");
+            Assert.fail("success test fail");
         }
     }
 

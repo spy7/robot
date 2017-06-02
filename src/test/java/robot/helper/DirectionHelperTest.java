@@ -23,26 +23,26 @@ public class DirectionHelperTest {
 
     @Test
     public void testToChar() {
-        assertEquals("Wrong char", 'N', directionHelper.toChar(Direction.NORTH));
-        assertEquals("Wrong char", 'E', directionHelper.toChar(Direction.EAST));
-        assertEquals("Wrong char", 'S', directionHelper.toChar(Direction.SOUTH));
-        assertEquals("Wrong char", 'W', directionHelper.toChar(Direction.WEST));
+        assertEquals("wrong char", 'N', directionHelper.toChar(Direction.NORTH));
+        assertEquals("wrong char", 'E', directionHelper.toChar(Direction.EAST));
+        assertEquals("wrong char", 'S', directionHelper.toChar(Direction.SOUTH));
+        assertEquals("wrong char", 'W', directionHelper.toChar(Direction.WEST));
     }
 
     @Test
     public void testRotateClockwise() {
-        assertEquals("Wrong rotation clockwise", Direction.EAST, directionHelper.rotateClockwise(Direction.NORTH));
-        assertEquals("Wrong rotation clockwise", Direction.SOUTH, directionHelper.rotateClockwise(Direction.EAST));
-        assertEquals("Wrong rotation clockwise", Direction.WEST, directionHelper.rotateClockwise(Direction.SOUTH));
-        assertEquals("Wrong rotation clockwise", Direction.NORTH, directionHelper.rotateClockwise(Direction.WEST));
+        assertEquals("wrong rotation clockwise", Direction.EAST, directionHelper.rotateClockwise(Direction.NORTH));
+        assertEquals("wrong rotation clockwise", Direction.SOUTH, directionHelper.rotateClockwise(Direction.EAST));
+        assertEquals("wrong rotation clockwise", Direction.WEST, directionHelper.rotateClockwise(Direction.SOUTH));
+        assertEquals("wrong rotation clockwise", Direction.NORTH, directionHelper.rotateClockwise(Direction.WEST));
     }
 
     @Test
     public void testRotateCounterclockwise() {
-        assertEquals("Wrong rotation counterclockwise", Direction.WEST, directionHelper.rotateCounterclockwise(Direction.NORTH));
-        assertEquals("Wrong rotation counterclockwise", Direction.NORTH, directionHelper.rotateCounterclockwise(Direction.EAST));
-        assertEquals("Wrong rotation counterclockwise", Direction.EAST, directionHelper.rotateCounterclockwise(Direction.SOUTH));
-        assertEquals("Wrong rotation counterclockwise", Direction.SOUTH, directionHelper.rotateCounterclockwise(Direction.WEST));
+        assertEquals("wrong rotation counterclockwise", Direction.WEST, directionHelper.rotateCounterclockwise(Direction.NORTH));
+        assertEquals("wrong rotation counterclockwise", Direction.NORTH, directionHelper.rotateCounterclockwise(Direction.EAST));
+        assertEquals("wrong rotation counterclockwise", Direction.EAST, directionHelper.rotateCounterclockwise(Direction.SOUTH));
+        assertEquals("wrong rotation counterclockwise", Direction.SOUTH, directionHelper.rotateCounterclockwise(Direction.WEST));
     }
 
     @Test(expected = NasaException.class)

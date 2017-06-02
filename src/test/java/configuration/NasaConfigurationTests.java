@@ -9,10 +9,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
-import java.util.Map;
-
-import static org.assertj.core.api.BDDAssertions.then;
+import static junit.framework.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = NasaConfiguration.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -26,7 +26,11 @@ public class NasaConfigurationTests {
 
     @Test
     public void acceptanceTesting() throws Exception {
-        ResponseEntity<Map> entity = this.testRestTemplate.getForEntity("http://localhost:" + this.port + "/rest/mars/MMM", Map.class);
-        then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+        ResponseEntity<String> entity = this.testRestTemplate.postForEntity("http://localhost:" + this.port + "/rest/mars/MMM", params, String.class);
+
+        assertEquals("invalid status code", HttpStatus.OK, entity.getStatusCode());
+        assertEquals("invalid result", "(0, 3, N)", entity.getBody());
     }
 }
