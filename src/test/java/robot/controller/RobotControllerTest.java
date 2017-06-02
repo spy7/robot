@@ -8,12 +8,12 @@ import org.junit.Test;
 public class RobotControllerTest {
 
     @Test
-    public void testarMove() {
+    public void testMove() {
 
     }
 
     @Test
-    public void testarShowCoordinates() {
+    public void testShowCoordinates() {
 
     }
 }

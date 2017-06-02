@@ -8,7 +8,7 @@ import org.junit.Test;
 public class NasaControllerTest {
 
     @Test
-    public void testarMoveRobot() {
+    public void testMoveRobot() {
 
     }
 }
