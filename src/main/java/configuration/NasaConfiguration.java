@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
  * Created by: csanches on 01/06/2017.
  */
 @SpringBootApplication
-@EnableConfigurationProperties
 @ComponentScan({"robot"})
 public class NasaConfiguration {
 

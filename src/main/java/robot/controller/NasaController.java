@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import robot.entity.Robot;
 import robot.exception.NasaException;
+import robot.property.MessageProperty;
 
 /**
  * Created by: csanches on 01/06/2017.
@@ -19,8 +20,11 @@ public class NasaController {
     @Autowired
     private RobotController robotController;
 
+    @Autowired
+    private MessageProperty messageProperty;
+
     @ResponseBody
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.POST)
     public String moveRobot(@PathVariable String path) {
 
         try {
@@ -31,7 +35,7 @@ public class NasaController {
             return robotController.showCoordinates(robot);
 
         } catch (NasaException e) {
-            return "400 Bad Request: " + e.getMessage();
+            return messageProperty.getBadRequest();
         }
     }
 }

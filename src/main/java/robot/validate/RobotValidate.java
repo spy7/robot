@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import robot.entity.Robot;
 import robot.exception.NasaException;
 import robot.property.MapProperty;
-import robot.property.NasaProperty;
+import robot.property.MessageProperty;
 
 /**
  * Created by: csanches on 01/06/2017.
@@ -14,26 +14,26 @@ import robot.property.NasaProperty;
 public class RobotValidate {
 
     @Autowired
-    private NasaProperty nasaProperty;
+    private MessageProperty messageProperty;
 
     @Autowired
     private MapProperty map;
 
     public void validateRobot(Robot robot) {
         if (robot == null) {
-            throw new NasaException(nasaProperty.getInvalidRobot());
+            throw new NasaException(messageProperty.getInvalidRobot());
         }
 
         if (robot.getDirection() == null) {
-            throw new NasaException("Invalid robot direction");
+            throw new NasaException(messageProperty.getInvalidRobotDirection());
         }
 
         if (robot.getX() == null || robot.getY() == null || robot.getX() < 0 || robot.getY() < 0) {
-            throw new NasaException("Invalid robot coordinates");
+            throw new NasaException(messageProperty.getInvalidRobotCoordinates());
         }
 
         if (map != null && (robot.getX() >= map.getWidth() || robot.getY() >= map.getHeight())) {
-            throw new NasaException("Invalid robot coordinates");
+            throw new NasaException(messageProperty.getInvalidRobotCoordinates());
         }
     }
 

@@ -1,8 +1,10 @@
 package robot.helper;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import robot.entity.Direction;
 import robot.exception.NasaException;
-import org.springframework.stereotype.Service;
+import robot.property.MessageProperty;
 
 /**
  * Created by: csanches on 01/06/2017.
@@ -10,11 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class DirectionHelper {
 
+    @Autowired
+    MessageProperty messageProperty;
+
     public char toChar(Direction direction) {
         try {
             return direction.toString().charAt(0);
         } catch (Exception e) {
-            throw new NasaException("Invalid direction");
+            throw new NasaException(messageProperty.getInvalidDirection());
         }
     }
 
@@ -31,7 +36,7 @@ public class DirectionHelper {
             Direction[] values = Direction.values();
             return values[(direction.ordinal() + steps) % values.length];
         } catch (Exception e) {
-            throw new NasaException("Invalid direction");
+            throw new NasaException(messageProperty.getInvalidDirection());
         }
     }
 }

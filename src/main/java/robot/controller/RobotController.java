@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import robot.entity.Robot;
 import robot.exception.NasaException;
 import robot.helper.DirectionHelper;
+import robot.property.MessageProperty;
 import robot.validate.RobotValidate;
 
 /**
@@ -18,6 +19,9 @@ public class RobotController {
 
     @Autowired
     private RobotValidate robotValidate;
+
+    @Autowired
+    private MessageProperty messageProperty;
 
     public void move(Robot robot, String path) {
         for (char way : path.toUpperCase().toCharArray()) {
@@ -33,7 +37,7 @@ public class RobotController {
                     robot.setDirection(directionHelper.rotateCounterclockwise(robot.getDirection()));
                     break;
                 default:
-                    throw new NasaException("Invalid path");
+                    throw new NasaException(messageProperty.getInvalidPath());
             }
         }
     }
